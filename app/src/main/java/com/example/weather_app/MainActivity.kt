@@ -84,7 +84,7 @@ fun WeatherScreen(viewModel: WeatherViewModel) {
             Spacer(modifier = Modifier.height(24.dp))
 
             Text(
-                text = "Weather App",
+                text = "WeatherVista",
                 style = MaterialTheme.typography.headlineMedium.copy(
                     fontWeight = FontWeight.Bold,
                     color = Color.White

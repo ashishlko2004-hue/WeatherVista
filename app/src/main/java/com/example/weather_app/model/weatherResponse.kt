@@ -14,6 +14,7 @@ data class Location(
 )
 
 data class Current(
+
     @SerializedName("temp_c")
     val temperature: Double,
     @SerializedName("feelslike_c")
