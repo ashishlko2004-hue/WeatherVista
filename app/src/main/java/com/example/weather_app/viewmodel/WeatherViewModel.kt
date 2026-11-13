@@ -2,6 +2,7 @@ package com.example.weather_app.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.weather_app.BuildConfig
 import com.example.weather_app.model.WeatherResponse
 import com.example.weather_app.network.RetrofitInstance
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -21,7 +22,7 @@ class WeatherViewModel : ViewModel() {
 
     private val _weatherData = MutableStateFlow<WeatherResponse?>(null)
     val weatherData: StateFlow<WeatherResponse?> = _weatherData
-
+    
     fun fetchWeather(city: String) {
         if (city.isBlank()) return
 
@@ -29,7 +30,7 @@ class WeatherViewModel : ViewModel() {
             _uiState.value = WeatherUiState.Loading
             try {
                 val response = RetrofitInstance.api.getWeather(
-                    apiKey = "0c576d6242fa4b158c370856261311",
+                    apiKey = BuildConfig.WEATHER_API_KEY,
                     city = city.trim()
                 )
                 _weatherData.value = response
